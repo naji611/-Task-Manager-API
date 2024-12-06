@@ -6,12 +6,26 @@ const PermissionSchema = new mongoose.Schema(
     project: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Project",
-      required: true,
+      required: false,
     },
     permissions: {
       type: [String],
-      enum: ["view", "edit", "delete", "assign_tasks", "create_tasks"], // Define specific permissions
-      default: ["view"], // Default to view-only access
+      enum: [
+        "create_milestones",
+        "create_employees",
+        "create_projects",
+        "create_tasks",
+        "edit_projects",
+        "edit_tasks",
+        "edit_milestones",
+        "delete_employees",
+        "delete_projects",
+        "delete_tasks",
+        "delete_milestones",
+        "view_permissions",
+        "assign_permissions",
+      ],
+      required: true,
     },
   },
   { timestamps: true }
